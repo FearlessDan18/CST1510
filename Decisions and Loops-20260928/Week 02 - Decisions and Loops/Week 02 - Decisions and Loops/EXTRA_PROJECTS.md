@@ -1,4 +1,6 @@
-# Week 2 — Extra Practice Projects
+ 
+ 
+ # Week 2 — Extra Practice Projects
 
 Optional. Beyond the lab — classic beginner projects, adapted from Angela
 Yu's *100 Days of Code*, trimmed to use only what's been taught by this
