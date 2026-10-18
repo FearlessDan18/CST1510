@@ -14,6 +14,14 @@ Delete these instructions as you replace them with your code.
 
 # =================================================================== FUNCTIONS
 # 1. Write a function called status_of(percent) that returns "OVER LIMIT"
+def status_of(percent):
+    """Return OVER LIMIT, WARNING, or OK for a percentage."""
+    if percent >= 100:
+        return "OVER LIMIT"
+    if percent >= 90:
+        return "WARNING"
+    return "OK"
+
 #    (100% or more), "WARNING" (90% or more), or "OK" (anything else).
 #
 #    Typical and above: also write check(value, limit) that returns the
@@ -36,9 +44,9 @@ Delete these instructions as you replace them with your code.
 #    - the second is a NUMBER (use float(), not int())
 #    - the third  is a NUMBER (use float(), not int())
 
-label = ""      # replace with an input() call
-value = 0.0     # replace with an input() call, converted
-limit = 0.0     # replace with an input() call, converted
+label = input("Dataset name: ")
+loaded = float(input("Rows loaded: "))
+expected = float(input("Rows expected: "))
 
 
 # ================================================================== PROCESS
@@ -48,9 +56,10 @@ limit = 0.0     # replace with an input() call, converted
 #                difference and percentage inline, not in a function.
 #    Typical   : call check() to get the difference and percentage instead.
 
-difference = 0.0   # replace with your code
-percent = 0.0       # replace with your code
-status = ""          # replace with your code
+difference = loaded - expected
+percent = (loaded / expected) * 100
+status = status_of(percent)
+
 
 
 # =================================================================== OUTPUT
@@ -68,11 +77,12 @@ print()
 print("=" * 34)
 print(f"  RECORD CHECK  -  {label}")
 print("=" * 34)
-
-# your report lines go here
-
+print(f"  Rows loaded : {loaded}")
+print(f"  Rows expected : {expected}")
+print(f"  Difference  : {difference}")
+print(f"  Percent     : {percent}")
+print(f"  Status      : {status}")
 print("=" * 34)
-
 
 # ==========================================================================
 # 5. Before you finish:
