@@ -3,7 +3,7 @@ RECORD CHECK  -  my version
 ===========================
 
 Name  :
-Lane  :  AI / Cyber / IT      (delete two)
+Lane  :  AI / Data Science
 Date  :
 
 Run it:   python template.py
@@ -20,17 +20,17 @@ Delete these instructions as you replace them with your code.
 #    Typical   : add a method status(self) that returns "OVER LIMIT" (100%+),
 #                "WARNING" (90%+) or "OK", worked out from self.value and
 #                self.limit. Give it a one-line docstring.
-#    Excellent : also add over_limit_count as a class-level running total -
-#                see the note below.
+#    Excellent : not in this lane.
 
 # your class goes here
+
 
 class Record:
     """A monitored record with a label, current value and upper limit."""
 
     over_limit_count = 0
 
-    def _init_(self, label, value, limit):
+    def __init__(self, label, value, limit):
         """Store the label, value and limit on the new record."""
         self.label = label
         self.value = value
@@ -67,16 +67,13 @@ def load_records(path):
 #
 #    Threshold : create at least 2 Record instances directly in the code.
 #    Typical   : same, but now print each one's .status() as well.
-#    Excellent : instead, write load_records(path) that reads label,value,limit
-#                lines from a file and returns a list of Record objects. Make
-#                your own data file, one record per line.
+#    Excellent : not in this lane.
 
 records = [
-     Record("R-001", 87.0, 100.0),
-     Record("R-002", 120.0, 100.0),
-     Record("R-003", 45.0, 100.0),
-
-]   # replace with your code
+    Record("R-001", 87.0, 100.0),
+    Record("R-002", 120.0, 100.0),
+    Record("R-003", 45.0, 100.0),
+]
 
 
 # ==================================================================== OUTPUT
@@ -84,21 +81,8 @@ records = [
 #
 #    Threshold : label, value, limit, inside a border.
 #    Typical   : add the result of .status().
-#    Excellent : also keep a running count of how many came back OVER LIMIT
-#                across every record, and print that once, after the loop.
-#                (Simplest: a plain variable outside the loop, same pattern
-#                as Week 4. If you want it to live ON the object instead,
-#                that is a stretch worth trying - but a variable is enough.)
-
-for record in records:
-    print()
-    print("=" * 34)
-    print(f"  RECORD CHECK  -  {record.label}")
-    print("=" * 34)
-
-    # your report lines go here
-
-    print("=" * 34)
+#    Excellent : not in this lane.
+#    Your final line should look like: 1 of 3 records are OVER LIMIT
 
 for record in records:
     print(record.label, record.status())

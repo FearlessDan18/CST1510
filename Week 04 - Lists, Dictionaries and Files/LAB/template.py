@@ -1,16 +1,13 @@
 """
-RECORD CHECK  -  my version
-===========================
+RECORD CHECK  -  AI / Data Science lane  (Excellent version)
+============================================================
 
 Name  :
-Lane  :  AI / Cyber / IT      (delete two)
+Lane  :  AI / Data Science
 Date  :
 
 Run it:   python template.py
 
-Work through the numbered sections in order. Each one tells you what it must do.
-Delete these instructions as you replace them with your code.
-"""
 Loads every dataset record from datasets.txt (label,value,limit - one record
 per line), checks each one against its limit, prints a bordered report, then
 writes label,status lines to check_results.txt and prints how many records
@@ -23,15 +20,10 @@ Excellent pieces:
   - the load is wrapped in try/except - a missing file starts empty, no crash
 """
 
-
 # =================================================================== FUNCTIONS
-# 1. Bring back check_record(value, limit) and print_report(...) from Week 3
-#    (copy them, or rewrite them - either is fine). check_record returns
-#    difference, percent and status. print_report does all of the printing,
-#    nothing outside it should contain a print() of its own. Give each a
-#    one-line docstring.
+# 1. check_record and print_report come back from Week 3 - one job each.
 
-# your function(s) go here
+
 def check_record(value, limit):
     """Return the difference, percentage and status for one record."""
     difference = value - limit
@@ -83,19 +75,10 @@ def write_results(path, results):
             f.write(f"{label},{status}\n")
 
 
-
 # ====================================================================== STORE
-# 2. Get your records into a list of dicts, each shaped like:
-#        {"label": ..., "value": ..., "limit": ...}
-#
-#    Threshold : write the list directly in the code - at least 3 records.
-#    Typical   : instead, write a function load_records(path) that reads
-#                label,value,limit lines from a file and returns the list.
-#                Make your own data file, one record per line.
-#    Excellent : also write the results out to a new file (one line per
-#                record: label, status), as well as printing them.
+# 2. Records come from a file, one label,value,limit line per record.
+#    A missing file is caught here - clear message, empty list, no crash.
 
-records = []   # replace with your code
 DATA_FILE = "datasets.txt"
 RESULTS_FILE = "check_results.txt"
 
@@ -107,12 +90,8 @@ except FileNotFoundError:
 
 
 # =============================================================== PROCESS + OUTPUT
-# 3. Loop over records. For each one, call check_record and print_report.
-#
-#    Excellent : also keep a running count of how many were OVER LIMIT, and
-#                print that once, after the loop ends.
-
-# your loop goes here
+# 3. Check and report on every record, keep a running OVER LIMIT count,
+#    then write the results out and print the summary once.
 
 over_limit_count = 0
 results = []
@@ -132,16 +111,12 @@ print(f"Checked {len(records)} records. {over_limit_count} were over limit.")
 print(f"Results written to {RESULTS_FILE}.")
 
 
-
 # ==========================================================================
 # 4. Before you finish:
 #
-#    [ ] Run it and check every record's numbers are correct by hand
-#    [ ] If you are loading from a file, check what happens when the file
-#        does not exist - write the error down
-#    [ ] Ran it with a missing file - the try/except caught it and started
+#    [x] Run it and check every record's numbers are correct by hand
+#    [x] Ran it with a missing file - the try/except caught it and started
 #        with an empty list instead of crashing (FileNotFoundError)
-
-#    [ ] Check every function still does one job - status logic lives only in
+#    [x] Every function does one job - status logic lives only in
 #        check_record, loading only in load_records, printing only in
 #        print_report, file writing only in write_results
